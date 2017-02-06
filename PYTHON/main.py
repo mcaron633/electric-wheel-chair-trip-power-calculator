@@ -7,6 +7,8 @@ import csv
 import numpy as np
 import msvcrt as ms
 import matplotlib.pyplot as plt
+import matlab.engine
+
 
 # definition of program variables
 stats = []
@@ -175,6 +177,12 @@ def get_travel_time(travel_data, power, m, target_speed):
 
 print '\n\n.......starting program'
 
+
+def simulink_process(stats):
+    ''' uses matlab python package to run analysed data in simulink for dynamic simulation'''
+    mat_eng = matlab.engine.start_matlab()
+
+
 route_data = file_read('route_data.csv', ',')
 
 loc_data = file_read('locations.tsv', '\t')
@@ -193,6 +201,8 @@ for i in range(1, 24):
 
     [data, v_gain, max_alt, dist, max_pos_grad, avg_pos_grad, max_grad_p] = get_section_stats(route_location_index_list, route_data, i)
     stats.append([None, v_gain, max_alt, dist, max_pos_grad, avg_pos_grad, max_grad_p])
+    simulink_process(stats)
+
 
     print 'iteration: %d' % i
     print v_gain
