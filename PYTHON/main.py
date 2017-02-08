@@ -165,7 +165,7 @@ def get_trip_stats(dat):
     return max_d, max_grad, max_p
 
 
-def get_travel_time(travel_data, power, m, target_speed):
+#def get_travel_time(travel_data, power, m, target_speed):
 
 
 
@@ -180,7 +180,8 @@ print '\n\n.......starting program'
 
 def simulink_process(stats):
     ''' uses matlab python package to run analysed data in simulink for dynamic simulation'''
-    mat_eng = matlab.engine.start_matlab()
+    print '\n starting matlab engine'
+    # mat_eng = matlab.engine.start_matlab()
 
 
 route_data = file_read('route_data.csv', ',')
@@ -199,7 +200,7 @@ print '\n and loc_data length: %d' % len(loc_data)
 # get stats for each section of trip
 for i in range(1, 24):
 
-    [data, v_gain, max_alt, dist, max_pos_grad, avg_pos_grad, max_grad_p] = get_section_stats(route_location_index_list, route_data, i)
+    [data, v_gain, max_alt, dist, max_pos_grad, avg_pos_grad, max_grad_p, avg_p] = get_section_stats(route_location_index_list, route_data, i)
     stats.append([None, v_gain, max_alt, dist, max_pos_grad, avg_pos_grad, max_grad_p])
     simulink_process(stats)
 
