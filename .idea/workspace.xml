@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f747761e-7b59-4135-8967-34c915942327" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/electric-wheel-chair-trip-power-calculator.iml" afterPath="$PROJECT_DIR$/.idea/electric-wheel-chair-trip-power-calculator.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/system_sim.slx" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PYTHON/system.slx" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PYTHON/run_sim.m" afterPath="$PROJECT_DIR$/PYTHON/run_sim.m" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +33,8 @@
       <file leaf-file-name="run_sim.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PYTHON/run_sim.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+            <state relative-caret-position="102">
+              <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -357,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486673559011</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added matlab sim setup script">
+      <created>1486673573681</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1486673573681</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -425,8 +433,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PYTHON/run_sim.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        <state relative-caret-position="102">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="25" />
           <folding />
         </state>
       </provider>

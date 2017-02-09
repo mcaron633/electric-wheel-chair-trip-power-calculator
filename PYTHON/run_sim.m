@@ -4,7 +4,7 @@ rho_air = 1.225;
 
 fprintf('\n running matlab code')
 
-sim_out = sim('system.slx')
+sim_out = sim('system_sim.slx')
 
 
 
