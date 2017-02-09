@@ -9,9 +9,12 @@ import msvcrt as ms
 import matplotlib.pyplot as plt
 import matlab.engine
 
+eng = matlab.engine.start_matlab()
 
 # definition of program variables
 stats = []
+path_sections_stats = []
+path_sections_data = []
 m = 150  # kg
 min_speed = 10  # km/h
 avg_speed = 15
@@ -22,7 +25,7 @@ t_acc = 5
 eff = 0.9
 
 
-def wait_for_enter():
+def script_end():
     print 'press enter to continue'
     ms.getch()
 
@@ -156,7 +159,8 @@ def plot_section(plt_data):
     return
 
 
-def get_trip_stats(dat):
+def get_trip_stats(dat_in):
+    dat = np.array(dat_in, dtype='float64')
 
     max_d = np.amax(dat[:, 3])
     max_grad = np.amax(dat[:, 4])
@@ -165,24 +169,25 @@ def get_trip_stats(dat):
     return max_d, max_grad, max_p
 
 
-#def get_travel_time(travel_data, power, m, target_speed):
+def simulink_leg_sim(data_in, eng, m, target_speed, Crr, Cd, area):
+    ''' uses matlab python package to run analysed data in simulink for dynamic simulation
+    format of data in shoud be : lat, long, altitude, distance, gradient'''
 
 
+    print '\nstarting matlab engine'
+
+    data_in = matlab.double(data_in)
+    target_speed_m_s = target_speed / 3.6
+    sim_out = eng.run_sim(data_in, m, target_speed_m_s, Crr, Cd, area)
+
+    print '\nsim done'
+
+    return sim_out
 
 
-
-
-
-
+# main code section ----------------------------------------------------------------------------------------------------
 
 print '\n\n.......starting program'
-
-
-def simulink_process(stats):
-    ''' uses matlab python package to run analysed data in simulink for dynamic simulation'''
-    print '\n starting matlab engine'
-    # mat_eng = matlab.engine.start_matlab()
-
 
 route_data = file_read('route_data.csv', ',')
 
@@ -201,9 +206,8 @@ print '\n and loc_data length: %d' % len(loc_data)
 for i in range(1, 24):
 
     [data, v_gain, max_alt, dist, max_pos_grad, avg_pos_grad, max_grad_p, avg_p] = get_section_stats(route_location_index_list, route_data, i)
-    stats.append([None, v_gain, max_alt, dist, max_pos_grad, avg_pos_grad, max_grad_p])
-    simulink_process(stats)
-
+    path_sections_stats.append([None, v_gain, max_alt, dist, max_pos_grad, avg_pos_grad, max_grad_p])
+    path_sections_data.append(data.tolist())
 
     print 'iteration: %d' % i
     print v_gain
@@ -211,18 +215,33 @@ for i in range(1, 24):
     print dist
     print max_pos_grad
     print avg_pos_grad
-    #  plot_section(data)
+    print '\n\n'
 
 
-a_stats = np.array(stats, dtype='float64')
-[max_d, max_grad, max_p] = get_trip_stats(a_stats)
+[max_d, max_grad, max_p] = get_trip_stats(path_sections_stats)
 
-print '\n\n max distance : %.3f' % max_d
-print ' max gradient : %.3f' % max_grad
-print' max power : %.3f' % max_p
+print '\n\n'
+print 'max distance : %.3f' % max_d
+print 'max gradient : %.3f' % max_grad
+print 'max power : %.3f' % max_p
+print 'running Matlab sim \n'
 
 
-wait_for_enter()
+print 'number of legs in trip (stops - 1)'
+print len(path_sections_data)
+print 'length of data in'
+print len(path_sections_data[1])
+
+
+d = path_sections_data[1]
+out = simulink_leg_sim(d, eng, m, 15, Crr, Cd, area)
+
+
+print 'length of data out  : \n'
+print len(out)
+
+script_end()
+
 
 
 
