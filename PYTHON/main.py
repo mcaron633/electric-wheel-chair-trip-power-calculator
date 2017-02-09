@@ -15,13 +15,13 @@ eng = matlab.engine.start_matlab()
 stats = []
 path_sections_stats = []
 path_sections_data = []
-m = 150  # kg
-min_speed = 10  # km/h
-avg_speed = 15
+m = 150.0  # kg
+min_speed = 10.0  # km/h
+avg_speed = 15.0
 Crr = 0.005
-Cd = 1
-area = 1
-t_acc = 5
+Cd = 1.0
+area = 1.0
+t_acc = 5.0
 eff = 0.9
 
 
