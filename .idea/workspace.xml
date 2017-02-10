@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f747761e-7b59-4135-8967-34c915942327" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/system_sim.slx" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PYTHON/system.slx" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/system_sim_test1.slx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/testing/Simulation_labo4_r2015a.slx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/testing/conversion_fichier.m" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/testing/main_labo4_part3.m" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/testing/mod_q4e2.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/testing/q4e2.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PYTHON/system_sim.slx" afterPath="$PROJECT_DIR$/PYTHON/system_sim.slx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PYTHON/run_sim.m" afterPath="$PROJECT_DIR$/PYTHON/run_sim.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PYTHON/testing/matlab_commands_test.py" afterPath="$PROJECT_DIR$/PYTHON/testing/matlab_commands_test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,6 +19,10 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/electric-wheel-chair-trip-power-calculator$main.coverage" NAME="main Coverage Results" MODIFIED="1486687767620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PYTHON" />
+    <SUITE FILE_PATH="coverage/electric-wheel-chair-trip-power-calculator$matlab_commands_test.coverage" NAME="matlab_commands_test Coverage Results" MODIFIED="1486681437961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PYTHON/testing" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -23,9 +33,26 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="180" column="70" lean-forward="true" selection-start-line="180" selection-start-column="25" selection-end-line="180" selection-end-column="70" />
-              <folding />
+            <state relative-caret-position="215">
+              <caret line="231" column="25" lean-forward="true" selection-start-line="231" selection-start-column="25" selection-end-line="231" selection-end-column="25" />
+              <folding>
+                <element signature="e#24#32#1" expanded="false" />
+                <element signature="e#404#450#0" expanded="false" />
+                <element signature="e#492#695#0" expanded="false" />
+                <element signature="e#551#679#0" expanded="false" />
+                <element signature="e#766#1606#0" expanded="false" />
+                <element signature="e#861#1573#0" expanded="false" />
+                <element signature="e#933#1407#0" expanded="false" />
+                <element signature="e#997#1407#0" expanded="false" />
+                <element signature="e#1232#1266#0" expanded="false" />
+                <element signature="e#1313#1383#0" expanded="false" />
+                <element signature="e#1685#2141#0" expanded="false" />
+                <element signature="e#2205#3501#0" expanded="false" />
+                <element signature="e#2741#2939#0" expanded="false" />
+                <element signature="e#3536#3677#0" expanded="false" />
+                <element signature="e#3712#3883#0" expanded="false" />
+                <element signature="e#4910#5339#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -33,8 +60,28 @@
       <file leaf-file-name="run_sim.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PYTHON/run_sim.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="25" />
+            <state relative-caret-position="300">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matlab_commands_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PYTHON/testing/matlab_commands_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_labo4_part3.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PYTHON/testing/main_labo4_part3.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-141">
+              <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -48,6 +95,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/PYTHON/main.py" />
+        <option value="$PROJECT_DIR$/PYTHON/testing/main_labo4_part3.m" />
+        <option value="$PROJECT_DIR$/PYTHON/testing/matlab_commands_test.py" />
         <option value="$PROJECT_DIR$/PYTHON/run_sim.m" />
       </list>
     </option>
@@ -106,6 +156,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="electric-wheel-chair-trip-power-calculator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="electric-wheel-chair-trip-power-calculator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PYTHON" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -117,7 +185,43 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PYTHON" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="electric-wheel-chair-trip-power-calculator" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PYTHON/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="matlab_commands_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PYTHON/testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="electric-wheel-chair-trip-power-calculator" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PYTHON/testing/matlab_commands_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -332,6 +436,16 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.main" />
+      <item index="1" class="java.lang.String" itemvalue="Python.matlab_commands_test" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.main" />
+        <item index="1" class="java.lang.String" itemvalue="Python.matlab_commands_test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -365,7 +479,21 @@
       <option name="project" value="LOCAL" />
       <updated>1486673573681</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added matlab sim setup script">
+      <created>1486673664623</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1486673664623</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added matlab sim setup script">
+      <created>1486674674018</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1486674674018</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -378,22 +506,25 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.m" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -403,7 +534,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="added matlab sim setup script" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -411,7 +544,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#24#32#1" expanded="false" />
+            <element signature="e#404#450#0" expanded="false" />
+            <element signature="e#492#695#0" expanded="false" />
+            <element signature="e#551#679#0" expanded="false" />
+            <element signature="e#766#1606#0" expanded="false" />
+            <element signature="e#861#1573#0" expanded="false" />
+            <element signature="e#933#1407#0" expanded="false" />
+            <element signature="e#997#1407#0" expanded="false" />
+            <element signature="e#1232#1266#0" expanded="false" />
+            <element signature="e#1313#1383#0" expanded="false" />
+            <element signature="e#1685#2141#0" expanded="false" />
+            <element signature="e#2205#3501#0" expanded="false" />
+            <element signature="e#2741#2939#0" expanded="false" />
+            <element signature="e#3536#3677#0" expanded="false" />
+            <element signature="e#3712#3883#0" expanded="false" />
+            <element signature="e#4910#5339#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -419,22 +569,72 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#32#1" expanded="false" />
+            <element signature="e#404#450#0" expanded="false" />
+            <element signature="e#492#695#0" expanded="false" />
+            <element signature="e#551#679#0" expanded="false" />
+            <element signature="e#766#1606#0" expanded="false" />
+            <element signature="e#861#1573#0" expanded="false" />
+            <element signature="e#933#1407#0" expanded="false" />
+            <element signature="e#997#1407#0" expanded="false" />
+            <element signature="e#1232#1266#0" expanded="false" />
+            <element signature="e#1313#1383#0" expanded="false" />
+            <element signature="e#1685#2141#0" expanded="false" />
+            <element signature="e#2205#3501#0" expanded="false" />
+            <element signature="e#2741#2939#0" expanded="false" />
+            <element signature="e#3536#3677#0" expanded="false" />
+            <element signature="e#3712#3883#0" expanded="false" />
+            <element signature="e#4910#5339#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/testing/matlab_commands_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="180" column="70" lean-forward="true" selection-start-line="180" selection-start-column="25" selection-end-line="180" selection-end-column="70" />
+        <state relative-caret-position="215">
+          <caret line="231" column="25" lean-forward="true" selection-start-line="231" selection-start-column="25" selection-end-line="231" selection-end-column="25" />
+          <folding>
+            <element signature="e#24#32#1" expanded="false" />
+            <element signature="e#404#450#0" expanded="false" />
+            <element signature="e#492#695#0" expanded="false" />
+            <element signature="e#551#679#0" expanded="false" />
+            <element signature="e#766#1606#0" expanded="false" />
+            <element signature="e#861#1573#0" expanded="false" />
+            <element signature="e#933#1407#0" expanded="false" />
+            <element signature="e#997#1407#0" expanded="false" />
+            <element signature="e#1232#1266#0" expanded="false" />
+            <element signature="e#1313#1383#0" expanded="false" />
+            <element signature="e#1685#2141#0" expanded="false" />
+            <element signature="e#2205#3501#0" expanded="false" />
+            <element signature="e#2741#2939#0" expanded="false" />
+            <element signature="e#3536#3677#0" expanded="false" />
+            <element signature="e#3712#3883#0" expanded="false" />
+            <element signature="e#4910#5339#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/testing/main_labo4_part3.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-141">
+          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PYTHON/run_sim.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="25" />
+        <state relative-caret-position="300">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
