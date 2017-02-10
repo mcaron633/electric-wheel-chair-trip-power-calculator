@@ -1,3 +1,5 @@
 import matlab.engine
 eng = matlab.engine.start_matlab()
-eng.triarea(nargout=0)
+
+f = 2
+eng.triarea(f)
