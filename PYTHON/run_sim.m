@@ -19,7 +19,7 @@ function out = run_sim(data_in, m, target_speed_m_s, Crr, Cd, area)
     out = [0,1];
     out = simout;
 
-    %disp(input_table_x_values)
+    %  disp(input_table_x_values)
 
 
     figure
