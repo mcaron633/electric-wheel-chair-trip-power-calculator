@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f747761e-7b59-4135-8967-34c915942327" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/run_sim.asv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/run_sim_test.m" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PYTHON/run_sim.asv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PYTHON/system_sim.slx" afterPath="$PROJECT_DIR$/PYTHON/system_sim.slx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PYTHON/run_sim.m" afterPath="$PROJECT_DIR$/PYTHON/run_sim.m" />
@@ -16,7 +17,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/electric-wheel-chair-trip-power-calculator$matlab_commands_test.coverage" NAME="matlab_commands_test Coverage Results" MODIFIED="1486681437961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PYTHON/testing" />
-    <SUITE FILE_PATH="coverage/electric-wheel-chair-trip-power-calculator$main.coverage" NAME="main Coverage Results" MODIFIED="1486739418964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PYTHON" />
+    <SUITE FILE_PATH="coverage/electric-wheel-chair-trip-power-calculator$main.coverage" NAME="main Coverage Results" MODIFIED="1486752985156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PYTHON" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -27,8 +28,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="230" column="29" lean-forward="true" selection-start-line="230" selection-start-column="29" selection-end-line="230" selection-end-column="29" />
+            <state relative-caret-position="868">
+              <caret line="230" column="29" lean-forward="false" selection-start-line="230" selection-start-column="29" selection-end-line="230" selection-end-column="29" />
               <folding>
                 <element signature="e#24#32#1" expanded="false" />
                 <element signature="e#34#44#0" expanded="true" />
@@ -46,7 +47,6 @@
                 <element signature="e#2741#2939#0" expanded="false" />
                 <element signature="e#3536#3677#0" expanded="false" />
                 <element signature="e#3712#3883#0" expanded="false" />
-                <element signature="e#3958#4354#0" expanded="false" />
                 <element signature="e#4910#5339#0" expanded="false" />
               </folding>
             </state>
@@ -56,8 +56,38 @@
       <file leaf-file-name="run_sim.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PYTHON/run_sim.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="8" column="74" lean-forward="true" selection-start-line="8" selection-start-column="74" selection-end-line="8" selection-end-column="74" />
+            <state relative-caret-position="119">
+              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="route_data.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PYTHON/route_data.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="locations.tsv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PYTHON/locations.tsv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_sim_test.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PYTHON/run_sim_test.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -105,8 +135,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -133,26 +161,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="electric-wheel-chair-trip-power-calculator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="electric-wheel-chair-trip-power-calculator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PYTHON" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,6 +172,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\libraries\Documents\GitHub\electric-wheel-chair-trip-power-calculator\PYTHON" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration default="false" name="matlab_commands_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -476,20 +493,27 @@
       <option name="project" value="LOCAL" />
       <updated>1486726625532</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="--">
+      <created>1486744284789</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1486744284789</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27684048" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16947852" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32789317" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42433235" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -515,7 +539,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added matlab sim setup script" />
     <MESSAGE value="setup environment with miniconda, tested to make sure running properly on laptop" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup environment with miniconda, tested to make sure running properly on laptop" />
+    <MESSAGE value="--" />
+    <option name="LAST_COMMIT_MESSAGE" value="--" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -524,6 +549,40 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3910">
+          <caret line="230" column="29" lean-forward="true" selection-start-line="230" selection-start-column="29" selection-end-line="230" selection-end-column="29" />
+          <folding>
+            <element signature="e#24#32#1" expanded="false" />
+            <element signature="e#34#44#0" expanded="true" />
+            <element signature="e#404#450#0" expanded="false" />
+            <element signature="e#492#695#0" expanded="false" />
+            <element signature="e#551#679#0" expanded="false" />
+            <element signature="e#766#1606#0" expanded="false" />
+            <element signature="e#861#1573#0" expanded="false" />
+            <element signature="e#933#1407#0" expanded="false" />
+            <element signature="e#997#1407#0" expanded="false" />
+            <element signature="e#1232#1266#0" expanded="false" />
+            <element signature="e#1313#1383#0" expanded="false" />
+            <element signature="e#1685#2141#0" expanded="false" />
+            <element signature="e#2205#3501#0" expanded="false" />
+            <element signature="e#2741#2939#0" expanded="false" />
+            <element signature="e#3536#3677#0" expanded="false" />
+            <element signature="e#3712#3883#0" expanded="false" />
+            <element signature="e#4910#5339#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/run_sim.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -545,7 +604,6 @@
             <element signature="e#2741#2939#0" expanded="false" />
             <element signature="e#3536#3677#0" expanded="false" />
             <element signature="e#3712#3883#0" expanded="false" />
-            <element signature="e#3958#4354#0" expanded="false" />
             <element signature="e#4910#5339#0" expanded="false" />
           </folding>
         </state>
@@ -580,7 +638,6 @@
             <element signature="e#2741#2939#0" expanded="false" />
             <element signature="e#3536#3677#0" expanded="false" />
             <element signature="e#3712#3883#0" expanded="false" />
-            <element signature="e#3958#4354#0" expanded="false" />
             <element signature="e#4910#5339#0" expanded="false" />
           </folding>
         </state>
@@ -615,7 +672,6 @@
             <element signature="e#2741#2939#0" expanded="false" />
             <element signature="e#3536#3677#0" expanded="false" />
             <element signature="e#3712#3883#0" expanded="false" />
-            <element signature="e#3958#4354#0" expanded="false" />
             <element signature="e#4910#5339#0" expanded="false" />
           </folding>
         </state>
@@ -650,7 +706,6 @@
             <element signature="e#2741#2939#0" expanded="false" />
             <element signature="e#3536#3677#0" expanded="false" />
             <element signature="e#3712#3883#0" expanded="false" />
-            <element signature="e#3958#4354#0" expanded="false" />
             <element signature="e#4910#5339#0" expanded="false" />
           </folding>
         </state>
@@ -699,7 +754,6 @@
             <element signature="e#2741#2939#0" expanded="false" />
             <element signature="e#3536#3677#0" expanded="false" />
             <element signature="e#3712#3883#0" expanded="false" />
-            <element signature="e#3958#4354#0" expanded="false" />
             <element signature="e#4910#5339#0" expanded="false" />
           </folding>
         </state>
@@ -748,7 +802,6 @@
             <element signature="e#2741#2939#0" expanded="false" />
             <element signature="e#3536#3677#0" expanded="false" />
             <element signature="e#3712#3883#0" expanded="false" />
-            <element signature="e#3958#4354#0" expanded="false" />
             <element signature="e#4910#5339#0" expanded="false" />
           </folding>
         </state>
@@ -797,7 +850,6 @@
             <element signature="e#2741#2939#0" expanded="false" />
             <element signature="e#3536#3677#0" expanded="false" />
             <element signature="e#3712#3883#0" expanded="false" />
-            <element signature="e#3958#4354#0" expanded="false" />
             <element signature="e#4910#5339#0" expanded="false" />
           </folding>
         </state>
@@ -824,7 +876,6 @@
             <element signature="e#2741#2939#0" expanded="false" />
             <element signature="e#3536#3677#0" expanded="false" />
             <element signature="e#3712#3883#0" expanded="false" />
-            <element signature="e#3958#4354#0" expanded="false" />
             <element signature="e#4910#5339#0" expanded="false" />
           </folding>
         </state>
@@ -844,10 +895,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/run_sim_test.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/route_data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/locations.tsv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="230" column="29" lean-forward="true" selection-start-line="230" selection-start-column="29" selection-end-line="230" selection-end-column="29" />
+        <state relative-caret-position="868">
+          <caret line="230" column="29" lean-forward="false" selection-start-line="230" selection-start-column="29" selection-end-line="230" selection-end-column="29" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
             <element signature="e#34#44#0" expanded="true" />
@@ -865,7 +940,6 @@
             <element signature="e#2741#2939#0" expanded="false" />
             <element signature="e#3536#3677#0" expanded="false" />
             <element signature="e#3712#3883#0" expanded="false" />
-            <element signature="e#3958#4354#0" expanded="false" />
             <element signature="e#4910#5339#0" expanded="false" />
           </folding>
         </state>
@@ -873,8 +947,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PYTHON/run_sim.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="8" column="74" lean-forward="true" selection-start-line="8" selection-start-column="74" selection-end-line="8" selection-end-column="74" />
+        <state relative-caret-position="119">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
           <folding />
         </state>
       </provider>

@@ -37,13 +37,15 @@ function out = run_sim(data_in, m, target_speed_m_s, Crr, Cd, area)
 
     figure
     plot(s, kout)
-    title('k out ()')
+    title('k out (x - la fraction)')
 
 
     figure
     plot(s, fout)
+    title('fraction entre les 2 pts de x')
 
     figure
     plot(s, x_pos)
+    title('evolution de la positon de x durant la sim')
 
 end
