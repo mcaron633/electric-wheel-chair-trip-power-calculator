@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f747761e-7b59-4135-8967-34c915942327" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/system_sim_test2.slx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/system_sim_test3.slx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/system_sim_test4.slx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/run_sim_test2.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PYTHON/run_sim_test4.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PYTHON/mat_file.mat" afterPath="$PROJECT_DIR$/PYTHON/mat_file.mat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/electric-wheel-chair-trip-power-calculator.iml" afterPath="$PROJECT_DIR$/.idea/electric-wheel-chair-trip-power-calculator.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PYTHON/run_sim_test2.m" afterPath="$PROJECT_DIR$/PYTHON/run_sim_test2.m" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -500,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486757881590</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="gossing">
+      <created>1486783760777</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1486783760777</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -568,7 +567,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added matlab sim setup script" />
     <MESSAGE value="end of day, probles with timing and singularities" />
-    <option name="LAST_COMMIT_MESSAGE" value="end of day, probles with timing and singularities" />
+    <MESSAGE value="gossing" />
+    <option name="LAST_COMMIT_MESSAGE" value="gossing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
