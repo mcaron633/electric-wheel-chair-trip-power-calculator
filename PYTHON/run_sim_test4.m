@@ -23,5 +23,13 @@ m = 150;
 options = simset('SrcWorkspace','current'); 
 s = sim('system_sim_test4.slx',[],options);
 
+figure
+plot(s)
 
 
+figure
+plot(s,out_grad)
+
+
+figure
+plot(out_grad_ts)
