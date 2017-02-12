@@ -23,9 +23,7 @@ Cd = 1.0
 area = 1.0
 t_acc = 5.0
 eff = 0.9
-
-t_decc = 1 # stopping time for 30 km/h to 0
-
+t_decc = 1.0 # stopping time for 30 km/h to 0
 
 
 def script_end():
@@ -194,7 +192,6 @@ def simulink_leg_sim(data_in, eng, m, target_speed, Crr, Cd, area, brake_force, 
 print '\n\n.......starting program'
 
 route_data = file_read('route_data.csv', ',')
-
 loc_data = file_read('locations.tsv', '\t')
 
 print '\n\n.......data read'
@@ -224,33 +221,28 @@ for i in range(1, 24):
 
 [max_d, max_grad, max_p] = get_trip_stats(path_sections_stats)
 
-print '\n\n'
-print 'max distance : %.3f' % max_d
-print 'max gradient : %.3f' % max_grad
-print 'max power : %.3f' % max_p
-print 'running Matlab sim \n'
+#index_of_sim_section = 5
 
+for i in range(1,23):
+    index_of_sim_section = i
 
-print 'number of legs in trip (stops - 1)'
-print len(path_sections_data)
-print 'length of data in'
-print len(path_sections_data[1])
+    d = path_sections_data[index_of_sim_section]
+    brake_force = 1000.0
+    max_power = 1000.0
+    min_uphill_speed = 2.0
 
+    print '\n\n'
+    print 'max distance : %.3f' % max_d
+    print 'max gradient : %.3f' % max_grad
+    print 'max power : %.3f' % max_p
+    print 'running Matlab sim \n'
+    print 'number of legs in trip (stops - 1): %d \n' % len(path_sections_data)
+    print 'index of simulated section: %d \n' % index_of_sim_section
+    print 'length of data in : %d\n' % len(path_sections_data[index_of_sim_section])
 
-d = path_sections_data[1]
+    out = simulink_leg_sim(d, eng, m, 15.0, Crr, Cd, area, brake_force, max_power, min_uphill_speed)
 
-brake_force = 1000.0
-max_power = 1000.0
-min_uphill_speed = 2.0
-
-
-out = simulink_leg_sim(d, eng, m, 15.0, Crr, Cd, area, brake_force, max_power, min_uphill_speed)
-
-print 'length of data out  : \n'
-print len(out)
+    print 'length of data out  : \n'
+    print len(out)
 
 script_end()
-
-
-
-
