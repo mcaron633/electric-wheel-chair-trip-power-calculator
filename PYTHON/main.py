@@ -24,6 +24,9 @@ area = 1.0
 t_acc = 5.0
 eff = 0.9
 
+t_decc = 1 # stopping time for 30 km/h to 0
+
+
 
 def script_end():
     print 'press enter to continue'
@@ -169,7 +172,7 @@ def get_trip_stats(dat_in):
     return max_d, max_grad, max_p
 
 
-def simulink_leg_sim(data_in, eng, m, target_speed, Crr, Cd, area):
+def simulink_leg_sim(data_in, eng, m, target_speed, Crr, Cd, area, brake_force, max_allowed_power, absolute_min_permanent_speed_m_s):
     ''' uses matlab python package to run analysed data in simulink for dynamic simulation
     format of data in shoud be : lat, long, altitude, distance, gradient'''
 
@@ -178,7 +181,8 @@ def simulink_leg_sim(data_in, eng, m, target_speed, Crr, Cd, area):
 
     data_in = matlab.double(data_in)
     target_speed_m_s = target_speed / 3.6
-    sim_out = eng.run_sim(data_in, m, target_speed_m_s, Crr, Cd, area)
+
+    sim_out = eng.run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed_m_s, target_speed_m_s, Crr, Cd, area, brake_force)
 
     print '\nsim done'
 
@@ -234,8 +238,13 @@ print len(path_sections_data[1])
 
 
 d = path_sections_data[1]
-out = simulink_leg_sim(d, eng, m, 15, Crr, Cd, area)
 
+brake_force = 1000.0
+max_power = 1000.0
+min_uphill_speed = 2.0
+
+
+out = simulink_leg_sim(d, eng, m, 15.0, Crr, Cd, area, brake_force, max_power, min_uphill_speed)
 
 print 'length of data out  : \n'
 print len(out)
