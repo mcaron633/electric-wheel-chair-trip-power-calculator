@@ -182,6 +182,83 @@ def simulink_leg_sim(data_in, eng, m, target_speed, Crr, Cd, area, brake_force, 
 
     sim_out = eng.run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed_m_s, target_speed_m_s, Crr, Cd, area, brake_force)
 
+
+
+
+
+
+
+
+
+
+
+
+
+    # matlab code to translate and integrate
+
+    '''
+
+    end_time = sim_time(length(sim_time));
+
+    end_time_str = datestr(end_time / (24 * 60 * 60), 'HH:MM:SS.FFF');
+
+    end_pos = pos_out(length(pos_out));
+
+    end_energy = inst_spent_energy(length(inst_spent_energy));
+
+    fprintf('sim end position is : %f m \n', end_pos)
+
+    fprintf('\n\nsimulation end travel time : %f s \n\n or HH:MM:SS : %s \n', end_time, end_time_str)
+
+    fprintf('\ntotal spent energy : %.1f joules \n', end_energy)
+
+    fprintf('\navg speed is : %.2f km/h\n', mean(speed_out * 3.6))
+
+    figure
+    plot(s, speed_out * 3.6)
+    title('speed out')
+    xlabel('time (s)')
+    ylabel('speed (km/h)')
+
+    figure
+    plot(s, p_out)
+    title('power out')
+    xlabel('time (s)')
+    ylabel('power (watts)')
+
+    figure
+    plot(s, p_out_positive)
+    title('power out positive')
+    xlabel('time (s)')
+    ylabel('power (watts)')
+
+    figure
+    plot(s, inst_spent_energy)
+    title('instantaneous spent energy')
+    xlabel('time (s)')
+    ylabel('joules')
+
+
+
+
+
+
+    '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     print '\nsim done'
 
     return sim_out
@@ -221,28 +298,26 @@ for i in range(1, 24):
 
 [max_d, max_grad, max_p] = get_trip_stats(path_sections_stats)
 
-#index_of_sim_section = 5
+print '\n\n'
+print 'max distance : %.3f' % max_d
+print 'max gradient : %.3f' % max_grad
+print 'max power : %.3f' % max_p
+print 'running Matlab sim \n'
 
-for i in range(1,23):
+brake_force = 1000.0
+max_power = 1000.0
+min_uphill_speed = 2.0
+
+for i in range(0, 23):
+
     index_of_sim_section = i
-
     d = path_sections_data[index_of_sim_section]
-    brake_force = 1000.0
-    max_power = 1000.0
-    min_uphill_speed = 2.0
 
-    print '\n\n'
-    print 'max distance : %.3f' % max_d
-    print 'max gradient : %.3f' % max_grad
-    print 'max power : %.3f' % max_p
-    print 'running Matlab sim \n'
     print 'number of legs in trip (stops - 1): %d \n' % len(path_sections_data)
-    print 'index of simulated section: %d \n' % index_of_sim_section
+    print 'number of simulated section: %d \n' % (index_of_sim_section + 1)
     print 'length of data in : %d\n' % len(path_sections_data[index_of_sim_section])
 
     out = simulink_leg_sim(d, eng, m, 15.0, Crr, Cd, area, brake_force, max_power, min_uphill_speed)
-
-    print 'length of data out  : \n'
-    print len(out)
+    print 'length of data out  : %d\n' % len(out)
 
 script_end()
