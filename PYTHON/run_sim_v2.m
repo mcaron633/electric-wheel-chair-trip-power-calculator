@@ -18,7 +18,7 @@ x_in_temp = data_in(:,4)';
 
 fprintf('\nparsing for dx = 0\n')
 for i = 2: data_in_len
-dx(i-1) = x_in_temp(i) - x_in_temp(i-1);
+    dx(i-1) = x_in_temp(i) - x_in_temp(i-1);
 end
 z_val_indexes = find(dx==0);
 dx(z_val_indexes) = [];
@@ -54,8 +54,51 @@ fmax = max_moving_force;
 max_brake_force = brake_force; % N
 
 % runs the simulation in the same workspace as the current function
-options = simset('SrcWorkspace','current'); 
+options = simset('SrcWorkspace','current');
 s = sim('system_sim_v2_test1.slx',[],options);
+
+
+
+end_time = sim_time(length(sim_time));
+
+end_time_str = datestr(end_time / (24 * 60 * 60), 'HH:MM:SS.FFF');
+
+end_pos = pos_out(length(pos_out));
+
+end_energy = inst_spent_energy(length(inst_spent_energy));
+
+fprintf('sim end position is : %f m \n', end_pos)
+
+fprintf('\n\nsimulation end travel time : %f s \n\n or HH:MM:SS : %s \n', end_time, end_time_str)
+
+fprintf('\ntotal spent energy : %.1f joules \n', end_energy)
+
+fprintf('\navg speed is : %.2f km/h\n', mean(speed_out * 3.6))
+
+figure
+plot(s, speed_out * 3.6)
+title('speed out')
+xlabel('time (s)')
+ylabel('speed (km/h)')
+
+figure
+plot(s, p_out)
+title('power out')
+xlabel('time (s)')
+ylabel('power (watts)')
+
+figure
+plot(s, p_out_positive)
+title('power out positive')
+xlabel('time (s)')
+ylabel('power (watts)')
+
+figure
+plot(s, inst_spent_energy)
+title('instantaneous spent energy')
+xlabel('time (s)')
+ylabel('joules')
+
 
 
 

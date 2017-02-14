@@ -20,7 +20,7 @@ min_speed = 10.0  # km/h
 avg_speed = 15.0
 Crr = 0.005
 Cd = 1.0
-area = 1.0
+area = 2.0
 t_acc = 5.0
 eff = 0.9
 t_decc = 1.0 # stopping time for 30 km/h to 0
@@ -308,9 +308,28 @@ brake_force = 1000.0
 max_power = 1000.0
 min_uphill_speed = 2.0
 
-for i in range(0, 23):
 
-    index_of_sim_section = i
+manual = 1
+test = input('do you want to do automatic testing ? 1 for yes, 0 for no ')
+
+if test == 1:
+
+    for i in range(0, 23):
+
+        index_of_sim_section = i
+        d = path_sections_data[index_of_sim_section]
+
+        print 'number of legs in trip (stops - 1): %d \n' % len(path_sections_data)
+        print 'number of simulated section: %d \n' % (index_of_sim_section + 1)
+        print 'length of data in : %d\n' % len(path_sections_data[index_of_sim_section])
+
+        out = simulink_leg_sim(d, eng, m, 15.0, Crr, Cd, area, brake_force, max_power, min_uphill_speed)
+        print 'length of data out  : %d\n' % len(out)
+
+else:
+
+    index_of_sim_section = input('index of section you want to test')
+    print 'manual testing'
     d = path_sections_data[index_of_sim_section]
 
     print 'number of legs in trip (stops - 1): %d \n' % len(path_sections_data)
@@ -319,5 +338,6 @@ for i in range(0, 23):
 
     out = simulink_leg_sim(d, eng, m, 15.0, Crr, Cd, area, brake_force, max_power, min_uphill_speed)
     print 'length of data out  : %d\n' % len(out)
+    manual = input('do you want to continue : 1 for yes, 0 for no')
 
 script_end()
