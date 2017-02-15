@@ -1,5 +1,8 @@
-function out = run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed, target_speed_m_s, Crr, Cd, area, brake_force)
+function [pos_out, inst_spent_energy, p_out_positive, p_out, speed_out, sim_time, s] = run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed, target_speed_m_s, Crr, Cd, area, brake_force)
 %data format is : lat, long, altitude, distance, gradient
+
+
+
 
 clc
 close all
@@ -75,31 +78,12 @@ fprintf('\ntotal spent energy : %.1f joules \n', end_energy)
 
 fprintf('\navg speed is : %.2f km/h\n', mean(speed_out * 3.6))
 
-figure
-plot(s, speed_out * 3.6)
-title('speed out')
-xlabel('time (s)')
-ylabel('speed (km/h)')
-
-figure
-plot(s, p_out)
-title('power out')
-xlabel('time (s)')
-ylabel('power (watts)')
-
-figure
-plot(s, p_out_positive)
-title('power out positive')
-xlabel('time (s)')
-ylabel('power (watts)')
-
-figure
-plot(s, inst_spent_energy)
-title('instantaneous spent energy')
-xlabel('time (s)')
-ylabel('joules')
+speed_out =speed_out * 3.6;
 
 
 
 
-out = p_out;
+
+
+
+

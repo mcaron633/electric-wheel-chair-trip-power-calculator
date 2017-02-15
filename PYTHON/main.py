@@ -8,6 +8,7 @@ import numpy as np
 import msvcrt as ms
 import matplotlib.pyplot as plt
 import matlab.engine
+import struct
 
 eng = matlab.engine.start_matlab()
 
@@ -170,98 +171,45 @@ def get_trip_stats(dat_in):
     return max_d, max_grad, max_p
 
 
-def simulink_leg_sim(data_in, eng, m, target_speed, Crr, Cd, area, brake_force, max_allowed_power, absolute_min_permanent_speed_m_s):
+def simulink_leg_sim(i, data_in, eng, m, target_speed, Crr, Cd, area, brake_force, max_allowed_power, absolute_min_permanent_speed_m_s):
     ''' uses matlab python package to run analysed data in simulink for dynamic simulation
     format of data in shoud be : lat, long, altitude, distance, gradient'''
 
+    class trip_section:
+        dat = []
+        t_speed_m_s = 0
+        inst_energy = []
+        p_out_pos = []
+        p_out = []
+        speed_out_km_h = []
+        sim_time = []
+        s = []
+        i = 0
+        x_out = []
 
     print '\nstarting matlab engine'
 
     data_in = matlab.double(data_in)
     target_speed_m_s = target_speed / 3.6
 
-    sim_out = eng.run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed_m_s, target_speed_m_s, Crr, Cd, area, brake_force)
+    section = trip_section()
 
-
-
-
-
-
-
-
-
-
-
-
-
-    # matlab code to translate and integrate
-
-    '''
-
-    end_time = sim_time(length(sim_time));
-
-    end_time_str = datestr(end_time / (24 * 60 * 60), 'HH:MM:SS.FFF');
-
-    end_pos = pos_out(length(pos_out));
-
-    end_energy = inst_spent_energy(length(inst_spent_energy));
-
-    fprintf('sim end position is : %f m \n', end_pos)
-
-    fprintf('\n\nsimulation end travel time : %f s \n\n or HH:MM:SS : %s \n', end_time, end_time_str)
-
-    fprintf('\ntotal spent energy : %.1f joules \n', end_energy)
-
-    fprintf('\navg speed is : %.2f km/h\n', mean(speed_out * 3.6))
-
-    figure
-    plot(s, speed_out * 3.6)
-    title('speed out')
-    xlabel('time (s)')
-    ylabel('speed (km/h)')
-
-    figure
-    plot(s, p_out)
-    title('power out')
-    xlabel('time (s)')
-    ylabel('power (watts)')
-
-    figure
-    plot(s, p_out_positive)
-    title('power out positive')
-    xlabel('time (s)')
-    ylabel('power (watts)')
-
-    figure
-    plot(s, inst_spent_energy)
-    title('instantaneous spent energy')
-    xlabel('time (s)')
-    ylabel('joules')
-
-
-
-
-
-
-    '''
-
-
-
-
-
-
-
-
-
-
-
-
-
+    [pos_out, inst_spent_energy, p_out_positive, p_out, speed_out_km_h, sim_time, s] = eng.run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed_m_s, target_speed_m_s, Crr, Cd, area, brake_force)
+    section.dat = data_in
+    section.t_speed_m_s = target_speed_m_s
+    section.inst_energy = inst_spent_energy
+    section.p_out_pos = p_out_positive
+    section.p_out = p_out
+    section.speed_out_km_h = speed_out_km_h
+    section.sim_time = sim_time
+    section.s = s
+    section.i = i
+    section.x_out = pos_out
 
 
     print '\nsim done'
 
-    return sim_out
+    return section
 
 
 # main code section ----------------------------------------------------------------------------------------------------
@@ -323,8 +271,8 @@ if test == 1:
         print 'number of simulated section: %d \n' % (index_of_sim_section + 1)
         print 'length of data in : %d\n' % len(path_sections_data[index_of_sim_section])
 
-        out = simulink_leg_sim(d, eng, m, 15.0, Crr, Cd, area, brake_force, max_power, min_uphill_speed)
-        print 'length of data out  : %d\n' % len(out)
+        section = simulink_leg_sim(i, d, eng, m, 15.0, Crr, Cd, area, brake_force, max_power, min_uphill_speed)
+        print 'length of data out  : %d\n' % len(section.x_out)
 
 else:
 
