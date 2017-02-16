@@ -9,6 +9,7 @@ import msvcrt as ms
 import matplotlib.pyplot as plt
 import matlab.engine
 import struct
+import xlwt
 
 eng = matlab.engine.start_matlab()
 # eng.eval('close all')
@@ -27,15 +28,9 @@ s_time = []
 
 m = 150.0  # kg
 min_speed = 10.0  # km/h
-avg_speed = 15.0
-Crr = 0.005
-Cd = 1.0
-area = 2.0
-t_acc = 5.0
 eff = 0.9
 t_decc = 1.0 # stopping time for 30 km/h to 0
-brake_force = 1000.0
-max_power = 1000.0
+
 min_uphill_speed = 2.0
 motor_input_Voltage = 48.0
 
@@ -58,8 +53,10 @@ class tripSectionClass:
         self.area = 2.0
         self.brake_force = 1000.0
         self.max_allowed_power = 1000.0
-        self.min_uphill_speed = 2.0
-        self.force_out =[]
+        self.min_uphill_speed = 1.5 # lower gives more torque
+        self.force_out = []
+        self.Kp = 150.0
+        self.t_acc = 5.0
 
 
 def script_end():
@@ -228,10 +225,16 @@ def plot_section_output(energy ,power, speed, position, force_out, time):
     return
 
 
-def print_section_output_stats(energy ,power, speed, position, force_out, time, motor_input_Voltage):
+def print_section_output_stats(nrgy ,power, speed, position, frc_out, time, motor_tension):
 
-    avg_speed = np.mean(speed)
-    print 'avg speed is : %.3f' % avg_speed
+    a_speed = np.mean(speed)
+    print 'avg speed is : %.3f' % a_speed
+
+    max_speed = np.amax(speed)
+    print 'max speed is : %.3f' % max_speed
+
+    min_speed = np.amin(speed)
+    print 'min speed is : %.3f' % min_speed
 
     max_power_out = np.amax(power)
     print 'max power out is : %.3f' % max_power_out
@@ -242,11 +245,14 @@ def print_section_output_stats(energy ,power, speed, position, force_out, time, 
     end_time = np.amax(time)
     print 'travel time is : %.3f' % end_time
 
-    total_energy_output = np.amax(energy)
+    total_energy_output = np.amax(nrgy)
     print 'total energy output is : %.3f' % total_energy_output
 
-    battery_req_charge = float(np.amax(np.array(energy)))/(motor_input_Voltage * 3600.0)
+    battery_req_charge = np.amax(np.array(nrgy))/(motor_tension * 3600.0)
     print 'battery req charge is : %.3f Ampere-hours' % battery_req_charge
+
+    max_out_force = np.amax(frc_out)
+    print 'max force out is : %.3f' % max_out_force
 
 
 def get_trip_stats(dat_in):
@@ -259,6 +265,12 @@ def get_trip_stats(dat_in):
     return max_d, max_grad, max_p
 
 
+def con_ml_db_tolist(dat_in):
+    arr = np.array(dat_in)
+    out = (arr[:, 0]).tolist()
+    return out
+
+
 def simulink_leg_sim(sectionClIn, eng):
     ''' uses matlab python package to run analysed data in simulink for dynamic simulation
     format of data in shoud be : lat, long, altitude, distance, gradient'''
@@ -268,16 +280,19 @@ def simulink_leg_sim(sectionClIn, eng):
     data_in = matlab.double(sectionClIn.dat)
     target_speed_m_s = sectionClIn.tar_speed_m_s
 
-    out_ml = eng.run_sim_v2(data_in, sectionClIn.m, sectionClIn.max_allowed_power, sectionClIn.min_uphill_speed, target_speed_m_s, sectionClIn.Crr, sectionClIn.Cd, sectionClIn.area, sectionClIn.brake_force)
+    out_ml = eng.run_sim_v2(data_in, sectionClIn.m, sectionClIn.max_allowed_power, sectionClIn.min_uphill_speed,
+                            target_speed_m_s, sectionClIn.Crr, sectionClIn.Cd, sectionClIn.area,
+                            sectionClIn.brake_force, sectionClIn.Kp, sectionClIn.t_acc )
 
-    sectionClIn.inst_energy = out_ml['inst_spent_energy']
-    sectionClIn.p_out_pos = out_ml['p_out_positive']
-    sectionClIn.p_out = out_ml['p_out']
-    sectionClIn.speed_out_km_h = out_ml['speed_out_km_h']
-    sectionClIn.sim_time = out_ml['sim_time']
-    sectionClIn.s = out_ml['s']
-    sectionClIn.x_out = out_ml['pos_out']
-    sectionClIn.force_out = out_ml['force_out']
+    sectionClIn.inst_energy = con_ml_db_tolist(out_ml['inst_spent_energy'])
+    sectionClIn.p_out_pos = con_ml_db_tolist(out_ml['p_out_positive'])
+    sectionClIn.p_out = con_ml_db_tolist(out_ml['p_out'])
+    sectionClIn.speed_out_km_h = con_ml_db_tolist(out_ml['speed_out_km_h'])
+    sectionClIn.sim_time = con_ml_db_tolist(out_ml['sim_time'])
+    sectionClIn.s = con_ml_db_tolist(out_ml['s'])
+    sectionClIn.x_out = con_ml_db_tolist(out_ml['pos_out'])
+    sectionClIn.force_out = con_ml_db_tolist(out_ml['force_out'])
+
 
     print '\nsim done'
 
@@ -298,6 +313,92 @@ def call_section_sim(eng, i, path_sections_data, section_cl):
     print 'length of data out  : %d\n' % len(section_cl.x_out)
 
     return section_cl
+
+
+def complete_data_summary(nrgy_l ,power_l, speed_l, position_l, frc_out_l, trip_time_list, motor_tension):
+
+    # get single data to eval :
+
+    a_speed = []
+    max_speed = []
+    min_speed = []
+    max_power_out = []
+    total_distance_travelled = []
+    end_time = []
+    total_energy_output = []
+    battery_req_charge = []
+    max_out_force = []
+
+    sections_testing_range = range(0,len(trip_time_list))
+
+    for i in sections_testing_range:
+        end_time.append(np.amax(trip_time_list[i]))
+
+        a_speed.append(np.mean(speed_l[i]))
+        max_speed.append(np.amax(speed_l[i]))
+        min_speed.append(np.amin(speed_l[i])) # skipping possibly problematic first points, check if due to too small Kp
+        max_power_out.append(np.amax(power_l[i]))
+        total_distance_travelled.append(np.amax(position_l[i]))
+        total_energy_output.append(np.amax(nrgy_l[i]))
+        battery_req_charge.append(np.amax(np.array(nrgy_l[i])) / (motor_tension * 3600.0))
+        max_out_force.append(np.amax(frc_out_l[i]))
+
+    trip_min_avg_speed = np.amin(a_speed)
+    trip_max_avg_speed = np.amax(a_speed)
+    trip_max_speed = np.amax(max_speed)
+    trip_min_speed = np.amin(min_speed)
+    trip_max_power = np.amax(max_power_out)
+    trip_max_section_distance = np.amax(total_distance_travelled)
+    trip_max_energy_output = np.amax(total_energy_output)
+    trip_max_battery_req_charge = np.amax(battery_req_charge)
+    trip_max_out_force = np.amax(max_out_force)
+
+    print '\n trip_min_avg_speed %f : ' % trip_min_avg_speed
+    print '\n trip_max_avg_speed %f : ' % trip_max_avg_speed
+    print '\n trip_max_speed %f : ' % trip_max_speed
+    print '\n trip_min_speed %f : ' % trip_min_speed
+    print '\n trip_max_power %f : ' % trip_max_power
+    print '\n trip_max_section_distance %f : ' % trip_max_section_distance
+    print '\n trip_max_energy_output %f : ' % trip_max_energy_output
+    print '\n trip_max_battery_req_charge %f : ' % trip_max_battery_req_charge
+    print '\n trip_max_out_force %f : ' % trip_max_out_force
+
+
+    print 'writing data to excel file'
+
+    xls_output('sim_out.xls', nrgy_l, power_l, speed_l, position_l, frc_out_l, trip_time_list)
+
+
+def xls_output(filename, nrgy_l, power_l, speed_l, position_l, frc_out_l, trip_time_list):
+    book = xlwt.Workbook()
+
+    sh_l = []
+    for i in range(0, len(nrgy_l)):
+        sh_l.append(book.add_sheet(str(i+1)))
+
+    i = 0
+    for sh in sh_l:
+        variables = [nrgy_l[i], power_l[i], speed_l[i], position_l[i], frc_out_l[i], trip_time_list[i]]
+        e_desc = 'energy'
+        p_desc = 'power'
+        s_desc = 'speed'
+        x_desc = 'x'
+        f_desc = 'force out'
+        t_desc = 'time sec'
+
+        desc = [e_desc, p_desc, s_desc, x_desc, f_desc, t_desc]
+        n = 0
+        for col in variables:
+
+            sh.write(1, n+1, desc[n])
+            j = 1
+            for item in col[20:]: #skipping first items
+                sh.write(j+1, n+1, item)
+                j+=1
+            n += 1
+        i+=1
+
+    book.save(filename)
 
 
 # main code section ----------------------------------------------------------------------------------------------------
@@ -344,9 +445,14 @@ print 'running Matlab sim \n'
 manual = 1
 test = input('do you want to do automatic testing ? 1 for yes, 0 for no ')
 
+# FOR TESTING!!!! normal val is 23
+test_i = 23
+
+
+
 if test == 1:
 
-    for i in range(0, 23):
+    for i in range(0, test_i):
 
         section_cl = tripSectionClass()
         section_cl = call_section_sim(eng, i, path_sections_data, section_cl)
@@ -363,28 +469,34 @@ if test == 1:
 
         index = input('which index?')
 
-        plot_section_output(energy, max_output_power[index], speed_out[index], x_out[index], force_out[index], s_time[index])
+        plot_section_output(energy[index], max_output_power[index], speed_out[index], x_out[index], force_out[index],
+                            s_time[index])
 
-        print_section_output_stats(energy, max_output_power[index], speed_out[index], x_out[index], force_out[index], s_time[index],motor_input_Voltage)
+        print_section_output_stats(energy[index], max_output_power[index], speed_out[index], x_out[index],
+                                   force_out[index], s_time[index], motor_input_Voltage)
 
         plot_data = input('do you want to plot data from one specific index ?, enter 1 for yes')
 
+    complete_data_summary(energy, max_output_power, speed_out, x_out, force_out, s_time, motor_input_Voltage)
 
 else:
 
-    print '\nmanual testing'
-    index = input('index of section you want to test')
+    while manual ==1:
+        print '\nmanual testing'
+        index = input('index of section you want to test')
 
-    section_cl = tripSectionClass()
-    section_cl = call_section_sim(eng, index, path_sections_data, section_cl)
+        section_cl = tripSectionClass()
+        section_cl = call_section_sim(eng, index, path_sections_data, section_cl)
 
-    plot_section_output(section_cl.inst_energy, section_cl.p_out_pos, section_cl.speed_out_km_h,section_cl.x_out, section_cl.force_out,
-                        section_cl.sim_time)
+        plot_section_output(section_cl.inst_energy, section_cl.p_out_pos, section_cl.speed_out_km_h, section_cl.x_out,
+                            section_cl.force_out, section_cl.sim_time)
 
-    print_section_output_stats(section_cl.inst_energy, section_cl.p_out_pos, section_cl.speed_out_km_h,section_cl.x_out, section_cl.force_out,
-                        section_cl.sim_time, motor_input_Voltage)
+        print_section_output_stats(section_cl.inst_energy, section_cl.p_out_pos, section_cl.speed_out_km_h,
+                                   section_cl.x_out, section_cl.force_out, section_cl.sim_time, motor_input_Voltage)
 
-    manual = input('do you want to continue : 1 for yes, 0 for no')
+        manual = input('do you want to continue : 1 for yes, 0 for no')
+
+
 
 
 
