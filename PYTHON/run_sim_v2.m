@@ -1,11 +1,7 @@
-function [pos_out, inst_spent_energy, p_out_positive, p_out, speed_out, sim_time, s] = run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed, target_speed_m_s, Crr, Cd, area, brake_force)
+function out = run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed, target_speed_m_s, Crr, Cd, area, brake_force)
 %data format is : lat, long, altitude, distance, gradient
 
-
-
-
 clc
-close all
 fprintf('\nrunning matlab code\n')
 
 g = 9.81;
@@ -15,7 +11,6 @@ rho_air = 1.225;
 Kp = 150;
 scope_history = 15000;
 data_in_len = length(data_in(:,1));
-
 
 x_in_temp = data_in(:,4)';
 
@@ -27,7 +22,6 @@ z_val_indexes = find(dx==0);
 dx(z_val_indexes) = [];
 
 fprintf('\n%d points removed',length(z_val_indexes))
-
 
 grad_in = data_in(:,5)';
 x_in = data_in(:,4)';
@@ -46,9 +40,7 @@ ylabel('dx in m')
 
 fprintf('\nlast x point in m is : %f \n',x_in_m(length(x_in_m)))
 
-
 end_x = x_in_m(length(x_in_m));
-
 
 max_moving_force = max_allowed_power/absolute_min_permanent_speed; % equivalent to start torque or very steep hill
 
@@ -60,30 +52,9 @@ max_brake_force = brake_force; % N
 options = simset('SrcWorkspace','current');
 s = sim('system_sim_v2_test1.slx',[],options);
 
+speed_out_km_h = speed_out * 3.6;
 
-
-end_time = sim_time(length(sim_time));
-
-end_time_str = datestr(end_time / (24 * 60 * 60), 'HH:MM:SS.FFF');
-
-end_pos = pos_out(length(pos_out));
-
-end_energy = inst_spent_energy(length(inst_spent_energy));
-
-fprintf('sim end position is : %f m \n', end_pos)
-
-fprintf('\n\nsimulation end travel time : %f s \n\n or HH:MM:SS : %s \n', end_time, end_time_str)
-
-fprintf('\ntotal spent energy : %.1f joules \n', end_energy)
-
-fprintf('\navg speed is : %.2f km/h\n', mean(speed_out * 3.6))
-
-speed_out =speed_out * 3.6;
-
-
-
-
-
-
-
+out = struct('inst_spent_energy', inst_spent_energy, 'p_out', p_out,...
+    'p_out_positive', p_out_positive, 'speed_out_km_h',speed_out_km_h,'pos_out',pos_out, ...
+    'sim_time', sim_time, 's', s, 'force_out', force_out);
 

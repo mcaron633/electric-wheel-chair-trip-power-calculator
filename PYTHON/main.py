@@ -11,11 +11,20 @@ import matlab.engine
 import struct
 
 eng = matlab.engine.start_matlab()
+# eng.eval('close all')
 
 # definition of program variables
 stats = []
 path_sections_stats = []
 path_sections_data = []
+energy = []
+max_output_power = []
+speed_out = []
+x_out = []
+force_out = []
+s_time = []
+
+
 m = 150.0  # kg
 min_speed = 10.0  # km/h
 avg_speed = 15.0
@@ -25,6 +34,32 @@ area = 2.0
 t_acc = 5.0
 eff = 0.9
 t_decc = 1.0 # stopping time for 30 km/h to 0
+brake_force = 1000.0
+max_power = 1000.0
+min_uphill_speed = 2.0
+motor_input_Voltage = 48.0
+
+
+class tripSectionClass:
+    def __init__(self):
+        self.dat = []
+        self.tar_speed_m_s = 15.0/3.6
+        self.inst_energy = []
+        self.p_out = []
+        self.p_out_pos = []
+        self.speed_out_km_h = []
+        self.sim_time = []
+        self.s = []
+        self.i = 0
+        self.x_out = []
+        self.m = 150.0
+        self.Crr = 0.005
+        self.Cd = 1.0
+        self.area = 2.0
+        self.brake_force = 1000.0
+        self.max_allowed_power = 1000.0
+        self.min_uphill_speed = 2.0
+        self.force_out =[]
 
 
 def script_end():
@@ -161,6 +196,59 @@ def plot_section(plt_data):
     return
 
 
+def plot_section_xy(x, y, title):
+    fig = plt.figure()
+    fig.add_subplot(1, 1, 1)
+
+    plt.plot(x, y)
+    plt.title(title)
+    plt.show()
+
+    return
+
+
+def plot_section_output(energy ,power, speed, position, force_out, time):
+
+    x = time
+    y = energy
+    plot_section_xy(x, y,'energy')
+
+    y = power
+    plot_section_xy(x, y,'power')
+
+    y = speed
+    plot_section_xy(x, y,'speed')
+
+    y = position
+    plot_section_xy(x, y,'position')
+
+    y = force_out
+    plot_section_xy(x, y,'force_out')
+
+    return
+
+
+def print_section_output_stats(energy ,power, speed, position, force_out, time, motor_input_Voltage):
+
+    avg_speed = np.mean(speed)
+    print 'avg speed is : %.3f' % avg_speed
+
+    max_power_out = np.amax(power)
+    print 'max power out is : %.3f' % max_power_out
+
+    total_distance_travelled = np.amax(position)
+    print 'total distance is : %.3f' % total_distance_travelled
+
+    end_time = np.amax(time)
+    print 'travel time is : %.3f' % end_time
+
+    total_energy_output = np.amax(energy)
+    print 'total energy output is : %.3f' % total_energy_output
+
+    battery_req_charge = float(np.amax(np.array(energy)))/(motor_input_Voltage * 3600.0)
+    print 'battery req charge is : %.3f Ampere-hours' % battery_req_charge
+
+
 def get_trip_stats(dat_in):
     dat = np.array(dat_in, dtype='float64')
 
@@ -171,45 +259,45 @@ def get_trip_stats(dat_in):
     return max_d, max_grad, max_p
 
 
-def simulink_leg_sim(i, data_in, eng, m, target_speed, Crr, Cd, area, brake_force, max_allowed_power, absolute_min_permanent_speed_m_s):
+def simulink_leg_sim(sectionClIn, eng):
     ''' uses matlab python package to run analysed data in simulink for dynamic simulation
     format of data in shoud be : lat, long, altitude, distance, gradient'''
 
-    class trip_section:
-        dat = []
-        t_speed_m_s = 0
-        inst_energy = []
-        p_out_pos = []
-        p_out = []
-        speed_out_km_h = []
-        sim_time = []
-        s = []
-        i = 0
-        x_out = []
-
     print '\nstarting matlab engine'
 
-    data_in = matlab.double(data_in)
-    target_speed_m_s = target_speed / 3.6
+    data_in = matlab.double(sectionClIn.dat)
+    target_speed_m_s = sectionClIn.tar_speed_m_s
 
-    section = trip_section()
+    out_ml = eng.run_sim_v2(data_in, sectionClIn.m, sectionClIn.max_allowed_power, sectionClIn.min_uphill_speed, target_speed_m_s, sectionClIn.Crr, sectionClIn.Cd, sectionClIn.area, sectionClIn.brake_force)
 
-    [pos_out, inst_spent_energy, p_out_positive, p_out, speed_out_km_h, sim_time, s] = eng.run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed_m_s, target_speed_m_s, Crr, Cd, area, brake_force)
-    section.dat = data_in
-    section.t_speed_m_s = target_speed_m_s
-    section.inst_energy = inst_spent_energy
-    section.p_out_pos = p_out_positive
-    section.p_out = p_out
-    section.speed_out_km_h = speed_out_km_h
-    section.sim_time = sim_time
-    section.s = s
-    section.i = i
-    section.x_out = pos_out
-
+    sectionClIn.inst_energy = out_ml['inst_spent_energy']
+    sectionClIn.p_out_pos = out_ml['p_out_positive']
+    sectionClIn.p_out = out_ml['p_out']
+    sectionClIn.speed_out_km_h = out_ml['speed_out_km_h']
+    sectionClIn.sim_time = out_ml['sim_time']
+    sectionClIn.s = out_ml['s']
+    sectionClIn.x_out = out_ml['pos_out']
+    sectionClIn.force_out = out_ml['force_out']
 
     print '\nsim done'
 
-    return section
+    return sectionClIn
+
+
+def call_section_sim(eng, i, path_sections_data, section_cl):
+
+    print 'number of legs in trip (stops - 1): %d \n' % len(path_sections_data)
+    print 'number of simulated section: %d \n' % (i + 1)
+    print 'length of data in : %d\n' % len(path_sections_data[i])
+
+    section_cl.dat = path_sections_data[i]
+    section_cl.tar_speed_m_s = 15.0 / 3.6
+    section_cl.i = i
+    section_cl = simulink_leg_sim(section_cl, eng)
+
+    print 'length of data out  : %d\n' % len(section_cl.x_out)
+
+    return section_cl
 
 
 # main code section ----------------------------------------------------------------------------------------------------
@@ -219,8 +307,8 @@ print '\n\n.......starting program'
 route_data = file_read('route_data.csv', ',')
 loc_data = file_read('locations.tsv', '\t')
 
-print '\n\n.......data read'
 
+print '\n\n.......data read'
 
 # find index of location from loc_data in route data (km in route)
 route_location_index_list = get_route_loc_index_list(0.000582, loc_data, route_data)
@@ -243,7 +331,7 @@ for i in range(1, 24):
     print avg_pos_grad
     print '\n\n'
 
-
+# summary of prelim analysis
 [max_d, max_grad, max_p] = get_trip_stats(path_sections_stats)
 
 print '\n\n'
@@ -251,10 +339,6 @@ print 'max distance : %.3f' % max_d
 print 'max gradient : %.3f' % max_grad
 print 'max power : %.3f' % max_p
 print 'running Matlab sim \n'
-
-brake_force = 1000.0
-max_power = 1000.0
-min_uphill_speed = 2.0
 
 
 manual = 1
@@ -264,28 +348,44 @@ if test == 1:
 
     for i in range(0, 23):
 
-        index_of_sim_section = i
-        d = path_sections_data[index_of_sim_section]
+        section_cl = tripSectionClass()
+        section_cl = call_section_sim(eng, i, path_sections_data, section_cl)
 
-        print 'number of legs in trip (stops - 1): %d \n' % len(path_sections_data)
-        print 'number of simulated section: %d \n' % (index_of_sim_section + 1)
-        print 'length of data in : %d\n' % len(path_sections_data[index_of_sim_section])
+        energy.append(section_cl.inst_energy)
+        max_output_power.append(section_cl.p_out_pos)
+        speed_out.append(section_cl.speed_out_km_h)
+        x_out.append(section_cl.x_out)
+        force_out.append(section_cl.force_out)
+        s_time.append(section_cl.sim_time)
 
-        section = simulink_leg_sim(i, d, eng, m, 15.0, Crr, Cd, area, brake_force, max_power, min_uphill_speed)
-        print 'length of data out  : %d\n' % len(section.x_out)
+    plot_data = input('do you want to plot data from one specific index ?, enter 1 for yes')
+    while plot_data == 1:
+
+        index = input('which index?')
+
+        plot_section_output(energy, max_output_power[index], speed_out[index], x_out[index], force_out[index], s_time[index])
+
+        print_section_output_stats(energy, max_output_power[index], speed_out[index], x_out[index], force_out[index], s_time[index],motor_input_Voltage)
+
+        plot_data = input('do you want to plot data from one specific index ?, enter 1 for yes')
+
 
 else:
 
-    index_of_sim_section = input('index of section you want to test')
-    print 'manual testing'
-    d = path_sections_data[index_of_sim_section]
+    print '\nmanual testing'
+    index = input('index of section you want to test')
 
-    print 'number of legs in trip (stops - 1): %d \n' % len(path_sections_data)
-    print 'number of simulated section: %d \n' % (index_of_sim_section + 1)
-    print 'length of data in : %d\n' % len(path_sections_data[index_of_sim_section])
+    section_cl = tripSectionClass()
+    section_cl = call_section_sim(eng, index, path_sections_data, section_cl)
 
-    out = simulink_leg_sim(d, eng, m, 15.0, Crr, Cd, area, brake_force, max_power, min_uphill_speed)
-    print 'length of data out  : %d\n' % len(out)
+    plot_section_output(section_cl.inst_energy, section_cl.p_out_pos, section_cl.speed_out_km_h,section_cl.x_out, section_cl.force_out,
+                        section_cl.sim_time)
+
+    print_section_output_stats(section_cl.inst_energy, section_cl.p_out_pos, section_cl.speed_out_km_h,section_cl.x_out, section_cl.force_out,
+                        section_cl.sim_time, motor_input_Voltage)
+
     manual = input('do you want to continue : 1 for yes, 0 for no')
+
+
 
 script_end()
