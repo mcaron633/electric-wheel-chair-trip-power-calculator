@@ -282,7 +282,7 @@ def simulink_leg_sim(sectionClIn, eng):
 
     out_ml = eng.run_sim_v2(data_in, sectionClIn.m, sectionClIn.max_allowed_power, sectionClIn.min_uphill_speed,
                             target_speed_m_s, sectionClIn.Crr, sectionClIn.Cd, sectionClIn.area,
-                            sectionClIn.brake_force, sectionClIn.Kp, sectionClIn.t_acc )
+                            sectionClIn.brake_force, sectionClIn.Kp, sectionClIn.t_acc)
 
     sectionClIn.inst_energy = con_ml_db_tolist(out_ml['inst_spent_energy'])
     sectionClIn.p_out_pos = con_ml_db_tolist(out_ml['p_out_positive'])
