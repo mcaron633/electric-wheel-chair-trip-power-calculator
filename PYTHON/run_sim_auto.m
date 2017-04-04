@@ -1,4 +1,4 @@
-function out = run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed, target_speed_m_s, Crr, Cd, area, brake_force, Kp,acc_time)
+function out = run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed, target_speed_m_s, Crr, Cd, area, brake_force, Kp,acc_time, wheel_radius)
 %data format is : lat, long, altitude, distance, gradient
 
 clc
@@ -48,6 +48,12 @@ fmax = max_moving_force;
 
 max_brake_force = brake_force; % N
 slope = target_speed_m_s/acc_time;
+
+% OPTIONAL : SAVE VARIABLES TO WORKSPACE FOR SEPARATE SIMULINK TEST, DEV AND DEBUG
+
+%save('test_workspace')
+
+
 
 % runs the simulation in the same workspace as the current function
 options = simset('SrcWorkspace','current');

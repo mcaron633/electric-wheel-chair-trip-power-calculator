@@ -57,6 +57,7 @@ class tripSectionClass:
         self.force_out = []
         self.Kp = 150.0
         self.t_acc = 5.0
+        self.wheel_radius = 0.2538 # m
 
 
 def script_end():
@@ -280,9 +281,9 @@ def simulink_leg_sim(sectionClIn, eng):
     data_in = matlab.double(sectionClIn.dat)
     target_speed_m_s = sectionClIn.tar_speed_m_s
 
-    out_ml = eng.run_sim_v2(data_in, sectionClIn.m, sectionClIn.max_allowed_power, sectionClIn.min_uphill_speed,
+    out_ml = eng.run_sim_auto(data_in, sectionClIn.m, sectionClIn.max_allowed_power, sectionClIn.min_uphill_speed,
                             target_speed_m_s, sectionClIn.Crr, sectionClIn.Cd, sectionClIn.area,
-                            sectionClIn.brake_force, sectionClIn.Kp, sectionClIn.t_acc )
+                            sectionClIn.brake_force, sectionClIn.Kp, sectionClIn.t_acc, sectionClIn.wheel_radius)
 
     sectionClIn.inst_energy = con_ml_db_tolist(out_ml['inst_spent_energy'])
     sectionClIn.p_out_pos = con_ml_db_tolist(out_ml['p_out_positive'])
@@ -495,9 +496,6 @@ else:
                                    section_cl.x_out, section_cl.force_out, section_cl.sim_time, motor_input_Voltage)
 
         manual = input('do you want to continue : 1 for yes, 0 for no')
-
-
-
 
 
 script_end()
