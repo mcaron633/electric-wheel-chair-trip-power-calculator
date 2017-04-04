@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="f747761e-7b59-4135-8967-34c915942327" name="Default" comment="exclude .idea folder">
       <change type="DELETED" beforePath="$PROJECT_DIR$/PYTHON/run_sim_v2.m" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/electric-wheel-chair-trip-power-calculator.iml" afterPath="$PROJECT_DIR$/.idea/electric-wheel-chair-trip-power-calculator.iml" />
@@ -8,6 +9,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PYTHON/main.py" afterPath="$PROJECT_DIR$/PYTHON/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PYTHON/system_sim.slx" afterPath="$PROJECT_DIR$/PYTHON/system_sim.slx" />
+=======
+    <list default="true" id="f747761e-7b59-4135-8967-34c915942327" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+>>>>>>> origin/master
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,6 +24,10 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/electric-wheel-chair-trip-power-calculator$main.coverage" NAME="main Coverage Results" MODIFIED="1491321749019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PYTHON" />
     <SUITE FILE_PATH="coverage/electric-wheel-chair-trip-power-calculator$matlab_commands_test.coverage" NAME="matlab_commands_test Coverage Results" MODIFIED="1486681437961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PYTHON/testing" />
+<<<<<<< HEAD
+=======
+    <SUITE FILE_PATH="coverage/electric-wheel-chair-trip-power-calculator$main.coverage" NAME="main Coverage Results" MODIFIED="1487345529875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PYTHON" />
+>>>>>>> origin/master
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -37,9 +46,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-1067">
               <caret line="274" column="39" lean-forward="false" selection-start-line="274" selection-start-column="39" selection-end-line="274" selection-end-column="39" />
               <folding>
@@ -66,13 +76,44 @@
                 <element signature="e#6329#7522#0" expanded="false" />
                 <element signature="e#7592#8035#0" expanded="false" />
                 <element signature="e#10305#11054#0" expanded="false" />
+=======
+            <state relative-caret-position="85">
+              <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+              <folding>
+                <element signature="e#24#32#1" expanded="false" />
+>>>>>>> origin/master
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="run_sim_auto.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PYTHON/run_sim_auto.m">
+=======
+      <file leaf-file-name="route_data.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PYTHON/route_data.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="locations.tsv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PYTHON/locations.tsv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_sim_v2.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PYTHON/run_sim_v2.m">
+>>>>>>> origin/master
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="620">
               <caret line="57" column="39" lean-forward="false" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
@@ -149,6 +190,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -544,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487096957848</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="cleaning up of code">
+      <created>1487202601866</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1487202601866</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -557,16 +606,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <frame x="55" y="2" width="1316" height="773" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17615385" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> origin/master
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3206522" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3206522" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730016" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> origin/master
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -614,7 +674,8 @@
     <MESSAGE value="end of day, probles with timing and singularities" />
     <MESSAGE value="gossing" />
     <MESSAGE value="exclude .idea folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="exclude .idea folder" />
+    <MESSAGE value="cleaning up of code" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning up of code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -643,6 +704,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -665,6 +727,8 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -690,6 +754,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -712,6 +777,8 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -737,6 +804,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -759,6 +827,8 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -784,6 +854,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -806,6 +877,8 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -830,6 +903,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -852,10 +926,92 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/testing/matlab_commands_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/testing/main_labo4_part3.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+<<<<<<< HEAD
+=======
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#32#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/testing/matlab_commands_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/testing/main_labo4_part3.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <folding />
+>>>>>>> origin/master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3230">
+          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
+            <element signature="e#34#44#0" expanded="true" />
+            <element signature="e#199#222#0" expanded="false" />
+            <element signature="e#1240#1286#0" expanded="false" />
+            <element signature="e#1328#1531#0" expanded="false" />
+            <element signature="e#1387#1515#0" expanded="false" />
+            <element signature="e#1602#2442#0" expanded="false" />
+            <element signature="e#1697#2409#0" expanded="false" />
+            <element signature="e#1769#2243#0" expanded="false" />
+            <element signature="e#1833#2243#0" expanded="false" />
+            <element signature="e#2068#2102#0" expanded="false" />
+            <element signature="e#2149#2219#0" expanded="false" />
+            <element signature="e#2521#2977#0" expanded="false" />
+            <element signature="e#3041#4337#0" expanded="false" />
+            <element signature="e#3577#3775#0" expanded="false" />
+            <element signature="e#4372#4513#0" expanded="false" />
+            <element signature="e#4554#4669#0" expanded="false" />
+            <element signature="e#4751#5031#0" expanded="false" />
+            <element signature="e#5131#5971#0" expanded="false" />
+            <element signature="e#6006#6177#0" expanded="false" />
+            <element signature="e#6329#7522#0" expanded="false" />
+            <element signature="e#7592#8035#0" expanded="false" />
+            <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/run_sim.m" />
     <entry file="file://$PROJECT_DIR$/PYTHON/testing/matlab_commands_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -876,6 +1032,7 @@
           <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -898,53 +1055,8 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PYTHON/run_sim.m" />
-    <entry file="file://$PROJECT_DIR$/PYTHON/testing/matlab_commands_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PYTHON/testing/main_labo4_part3.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3230">
-          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#32#1" expanded="false" />
-            <element signature="e#34#44#0" expanded="true" />
-            <element signature="e#199#222#0" expanded="false" />
-            <element signature="e#1240#1286#0" expanded="false" />
-            <element signature="e#1328#1531#0" expanded="false" />
-            <element signature="e#1387#1515#0" expanded="false" />
-            <element signature="e#1602#2442#0" expanded="false" />
-            <element signature="e#1697#2409#0" expanded="false" />
-            <element signature="e#1769#2243#0" expanded="false" />
-            <element signature="e#1833#2243#0" expanded="false" />
-            <element signature="e#2068#2102#0" expanded="false" />
-            <element signature="e#2149#2219#0" expanded="false" />
-            <element signature="e#2521#2977#0" expanded="false" />
-            <element signature="e#3041#4337#0" expanded="false" />
-            <element signature="e#3577#3775#0" expanded="false" />
-            <element signature="e#4372#4513#0" expanded="false" />
-            <element signature="e#4554#4669#0" expanded="false" />
-            <element signature="e#4751#5031#0" expanded="false" />
-            <element signature="e#5131#5971#0" expanded="false" />
-            <element signature="e#6006#6177#0" expanded="false" />
-            <element signature="e#6329#7522#0" expanded="false" />
-            <element signature="e#7592#8035#0" expanded="false" />
-            <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -970,6 +1082,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -992,6 +1105,8 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -1017,6 +1132,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -1039,6 +1155,8 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -1064,6 +1182,7 @@
           <caret line="231" column="25" lean-forward="false" selection-start-line="231" selection-start-column="25" selection-end-line="231" selection-end-column="25" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -1086,6 +1205,8 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -1111,6 +1232,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -1133,6 +1255,8 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -1143,6 +1267,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#32#1" expanded="false" />
+<<<<<<< HEAD
             <element signature="e#34#44#0" expanded="true" />
             <element signature="e#199#222#0" expanded="false" />
             <element signature="e#1240#1286#0" expanded="false" />
@@ -1165,6 +1290,8 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -1191,6 +1318,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/Anaconda2/Lib/site-packages/matlab/_internal/mlarray_sequence.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -1202,6 +1330,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="604" column="0" lean-forward="false" selection-start-line="604" selection-start-column="0" selection-end-line="604" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/PYTHON/run_sim_v2.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PYTHON/route_data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -1215,14 +1358,20 @@
     <entry file="file://$PROJECT_DIR$/PYTHON/run_sim_v2.m" />
     <entry file="file://$PROJECT_DIR$/PYTHON/locations.tsv">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="408">
           <caret line="24" column="53" lean-forward="true" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PYTHON/main.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-1067">
           <caret line="274" column="39" lean-forward="false" selection-start-line="274" selection-start-column="39" selection-end-line="274" selection-end-column="39" />
           <folding>
@@ -1249,10 +1398,17 @@
             <element signature="e#6329#7522#0" expanded="false" />
             <element signature="e#7592#8035#0" expanded="false" />
             <element signature="e#10305#11054#0" expanded="false" />
+=======
+        <state relative-caret-position="85">
+          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding>
+            <element signature="e#24#32#1" expanded="false" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/PYTHON/run_sim_auto.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
@@ -1261,5 +1417,7 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> origin/master
   </component>
 </project>
