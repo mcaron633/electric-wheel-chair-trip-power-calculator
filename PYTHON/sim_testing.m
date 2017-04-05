@@ -6,6 +6,9 @@ load('test_workspace')
 
 fprintf('\nlast x point in m is : %f \n',x_in_m(length(x_in_m)))
 
+
+
+
 scope_history = 20000;
 Kp = 700;
 Kp_braking = 200;
@@ -13,6 +16,12 @@ max_allowed_power = 950;
 m = 210;
 area = 1.2;
 Cd = 0.6; % hummer h2 truck at 0.57, so this value should be more than conservative
+eff_data = csvread('efficiency_curve_24v.txt');
+
+
+
+input_rpm_vals = eff_data(:,1);
+eff_vals = eff_data(:,2);
 
 
 
