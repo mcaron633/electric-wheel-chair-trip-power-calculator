@@ -6,7 +6,15 @@ load('test_workspace')
 
 fprintf('\nlast x point in m is : %f \n',x_in_m(length(x_in_m)))
 
-scope_history = 85/15*3600/0.1 *1.1;
+scope_history = 20000;
+Kp = 700;
+Kp_braking = 200;
+max_allowed_power = 950;
+m = 210;
+area = 1.2;
+Cd = 0.6; % hummer h2 truck at 0.57, so this value should be more than conservative
+
+
 
 % runs the simulation in the same workspace as the current function
 options = simset('SrcWorkspace','current');
