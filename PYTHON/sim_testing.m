@@ -16,7 +16,7 @@ max_allowed_power = 950;
 m = 210;
 area = 1.2;
 Cd = 0.6; % hummer h2 truck at 0.57, so this value should be more than conservative
-eff_data = csvread('efficiency_curve_24v.txt');
+eff_data = load('efficiency_curve_24v.txt');
 
 
 
