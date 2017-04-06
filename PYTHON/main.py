@@ -32,7 +32,7 @@ eff = 0.9
 t_decc = 1.0 # stopping time for 30 km/h to 0
 
 min_uphill_speed = 2.0
-motor_input_Voltage = 48.0
+motor_input_Voltage = 24.0
 
 
 class tripSectionClass:
