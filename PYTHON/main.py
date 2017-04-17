@@ -281,7 +281,7 @@ def simulink_leg_sim(sectionClIn, eng):
     data_in = matlab.double(sectionClIn.dat)
     target_speed_m_s = sectionClIn.tar_speed_m_s
 
-    out_ml = eng.run_sim_auto(data_in, sectionClIn.m, sectionClIn.max_allowed_power, sectionClIn.min_uphill_speed,
+    out_ml = eng.run_sim_auto(data_in, sectionClIn.i, sectionClIn.m, sectionClIn.max_allowed_power, sectionClIn.min_uphill_speed,
                             target_speed_m_s, sectionClIn.Crr, sectionClIn.Cd, sectionClIn.area,
                             sectionClIn.brake_force, sectionClIn.Kp, sectionClIn.t_acc, sectionClIn.wheel_radius)
 
@@ -453,7 +453,7 @@ test_i = 23
 
 if test == 1:
 
-    for i in range(0, test_i):
+    for i in range(15, test_i):
 
         section_cl = tripSectionClass()
         section_cl = call_section_sim(eng, i, path_sections_data, section_cl)

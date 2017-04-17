@@ -1,4 +1,4 @@
-function out = run_sim_v2(data_in, m, max_allowed_power, absolute_min_permanent_speed, target_speed_m_s, Crr, Cd, area, brake_force, Kp,acc_time, wheel_radius)
+function out = run_sim_v2(data_in, I, m, max_allowed_power, absolute_min_permanent_speed, target_speed_m_s, Crr, Cd, area, brake_force, Kp,acc_time, wheel_radius)
 %data format is : lat, long, altitude, distance, gradient
 
 clc
@@ -49,9 +49,7 @@ fmax = max_moving_force;
 max_brake_force = brake_force; % N
 slope = target_speed_m_s/acc_time;
 
-% OPTIONAL : SAVE VARIABLES TO WORKSPACE FOR SEPARATE SIMULINK TEST, DEV AND DEBUG
 
-%save('test_workspace')
 
 scope_history = 20000;
 Kp = 700;
@@ -61,6 +59,7 @@ m = 210;
 area = 1.2;
 Cd = 0.6; % hummer h2 truck at 0.57, so this value should be more than conservative enough
 eff_data = load('efficiency_curve_24v.txt');
+motor_voltage = 24; %volts
 
 
 
@@ -72,6 +71,19 @@ options = simset('SrcWorkspace','current');
 s = sim('system_sim',[],options);
 
 speed_out_km_h = speed_out * 3.6;
+battery_req_charge = inst_spent_energy(end) / (motor_voltage * 3600);
+
+
+
+% OPTIONAL : SAVE VARIABLES TO WORKSPACE FOR SEPARATE SIMULINK TEST, DEV AND DEBUG
+
+
+workspace_name = strcat('wrkspc_no_',int2str(I));
+
+
+save(workspace_name)
+
+
 
 out = struct('inst_spent_energy', inst_spent_energy, 'p_out', p_out,...
     'p_out_positive', p_out_positive, 'speed_out_km_h',speed_out_km_h,'pos_out',pos_out, ...
