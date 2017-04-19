@@ -114,8 +114,15 @@ def get_route_loc_index_list(precision, loc_data, route_data):
         print '\n\nprecision: %f' % precision
         print 'current list size: ' + str(l)
 
-        
         precision *= 1.25
+
+
+    for element in route_location_index :
+
+        print route_data[element[1]][0]
+        print route_data[element[1]][1]
+        print route_data[element[1]][2]
+        print route_data[element[1]][3]
 
     return route_location_index
 
@@ -449,11 +456,9 @@ test = input('do you want to do automatic testing ? 1 for yes, 0 for no ')
 # FOR TESTING!!!! normal val is 23
 test_i = 23
 
-
-
 if test == 1:
 
-    for i in range(15, test_i):
+    for i in range(1, test_i):
 
         section_cl = tripSectionClass()
         section_cl = call_section_sim(eng, i, path_sections_data, section_cl)
@@ -482,7 +487,7 @@ if test == 1:
 
 else:
 
-    while manual ==1:
+    while manual == 1:
         print '\nmanual testing'
         index = input('index of section you want to test')
 
