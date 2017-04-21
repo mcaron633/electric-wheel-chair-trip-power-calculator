@@ -454,11 +454,11 @@ manual = 1
 test = input('do you want to do automatic testing ? 1 for yes, 0 for no ')
 
 # FOR TESTING!!!! normal val is 23
-test_i = 23
+test_i = 2
 
 if test == 1:
 
-    for i in range(1, test_i):
+    for i in range(0, test_i):
 
         section_cl = tripSectionClass()
         section_cl = call_section_sim(eng, i, path_sections_data, section_cl)

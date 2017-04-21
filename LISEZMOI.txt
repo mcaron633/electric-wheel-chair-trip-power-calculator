@@ -1,0 +1,31 @@
+Explication de l'utilité des différents fichiers
+
+dossiers: 
+\data_workspaces
+différents workspaces en format .mat contentant les données d'entrée et résultats de simulations pour les 23 sections du trajet
+
+
+graphs_rapport.m
+permet de rouler la simulation à partir d'un workspace choisi et de sortir les graphs pertinents
+
+
+main.py
+permet l'éxécution dans un environnement python de la boucle d'essai automatisée complète, attention requiert les modules python suivants : anaconda 64 bits, matlab python engine 64bit, matplotlib, numpy, msvcrt et xlwt
+
+locations.tsv
+route_data.csv
+sont requis pour main.py contiennent la liste des arrets ainsi que les données du parcours
+
+run_sim_auto.m
+fonctionne avec main.py
+
+sim_testing.m
+permet l'execution d'essais indépendants de main.py
+
+system_sim.slx
+simulation simulink, fonctionne avec les 2 modes différents
+
+efficiency_curve_24v.txt : requis pour le simulink
+
+resultats sommaires sim.xls
+résumé des données en sortie, attention contient la puissance de sortie mais pas d'entrée
